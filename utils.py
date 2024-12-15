@@ -14,6 +14,9 @@ class Point:
     def __mul__(self, factor: 'int') -> 'Point':
         return Point(self.x * factor, self.y * factor)
     
+    def neighbours(self) -> list['Point']:
+        return [self + d for d in DIRS_4]
+    
 
 DIRS_8 = [
     Point(0, 1),   #N
@@ -24,4 +27,11 @@ DIRS_8 = [
     Point(-1, -1), #SW
     Point(-1, 0),  #W
     Point(1, -1)   #NW
+]
+
+DIRS_4 = [
+    Point(0, 1),   #N
+    Point(1, 0),   #E
+    Point(0, -1),  #S
+    Point(-1, 0),  #W
 ]
