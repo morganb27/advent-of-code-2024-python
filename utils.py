@@ -1,4 +1,6 @@
 from dataclasses import dataclass
+from functools import reduce
+import operator
 
 @dataclass(frozen=True)
 class Point:
@@ -35,3 +37,6 @@ DIRS_4 = [
     Point(0, -1),  #S
     Point(-1, 0),  #W
 ]
+
+def mul(list):
+    return reduce(operator.mul, list, 1)
