@@ -16,8 +16,14 @@ class Point:
     def __mul__(self, factor: 'int') -> 'Point':
         return Point(self.x * factor, self.y * factor)
     
-    def neighbours(self) -> list['Point']:
+    def neighbours_4(self) -> list['Point']:
         return [self + d for d in DIRS_4]
+    
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+    
+    def __lt__(self, other):
+        return (self.x, self.y) < (other.x, other.y)
     
 
 DIRS_8 = [
@@ -32,10 +38,10 @@ DIRS_8 = [
 ]
 
 DIRS_4 = [
-    Point(0, 1),   #N
-    Point(1, 0),   #E
-    Point(0, -1),  #S
-    Point(-1, 0),  #W
+    Point(0, -1),  # N 
+    Point(1, 0),   # E 
+    Point(0, 1),   # S 
+    Point(-1, 0),  # W 
 ]
 
 def mul(list):
